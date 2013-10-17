@@ -1,0 +1,26 @@
+<h1>All Products</h1>
+
+<% if @product!=nil && @product.errors.any? %>
+	<div id="error_explanation">
+		<h2><%= pluralize(@product.errors.count, "error") %> prohibited this post from being saved: </h2>
+
+		<% @product.errors.full_messages.each do |message| %>
+			<p><%= message %></p>
+		<% end %>
+	</div>
+<% end %>
+
+<%	if defined? flash[:notice] %>
+		<p class="notice"><%=flash[:notice]%></p>
+<%	end %>
+
+<% @products.each do |product| %>
+	<div class="product-group">
+		<p>Product id: <%= product.id %></p>
+		<p>Name: <%= product.name %></p>
+		<p>Description: <%= product.description %></p>
+		<p>Price: <%= product.pricing %></p>
+		<span class="edit"><a href=<%= "/products/"+product.id.to_s+"/edit"%>>Edit</a></span>
+		<span class="delete"><%= link_to 'Destroy', product_path(product), :confirm => 'Are you sure?', :method => :delete %></span>
+	</div>
+<% end %>

@@ -1,0 +1,57 @@
+<% if @product == nil %>
+	<h2>Oops, that product doesn't exist!</h2>
+
+<% else %>
+
+	<% if @product.errors.any? %>
+		<div id="error_explanation">
+			<h3><%= pluralize(@product.errors.count, "error") %> prohibited this edit from being saved: </h3>
+		</div>
+	<% end %>
+
+	<%	if defined? flash[:notice] %>
+			<p><%=flash[:notice]%></p>
+	<%	end %>
+
+	<h1>Edit Product <%= @product.id %></h1>
+
+	<div id="container">
+		<div class="col-sm-6 form-container">
+
+			<%= simple_form_for(@product, :defaults => { :wrapper_html => {:class=>"form-group"}, :input_html => { :class => "form-control" } }) do |f| %>
+				<%= f.input :name, label: "Product name:", input_html: {placeholder: @product.name} %>
+				<%= f.input :description, label: "Description:", input_html: {placeholder: @product.description} %>
+				<%= f.input :pricing, label: "Price:", input_html: {placeholder: @product.pricing} %>
+				<%= f.button :submit, input_html: {value: 'Edit product'}, class: "btn btn-primary"%>
+			<% end %>
+
+			<!-- <form role="form" method="post" action=<%#= "/products/"+@product.id.to_s %>>
+				<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden" />
+
+				<input name="_method" type="hidden" value="patch" />
+
+				<div class="form-group">
+					<label for="product[name]">Product name:</label>
+					<input type="text" name="product[name]" class="form-control" placeholder=<%= @product.name %>></input>
+				</div>
+
+				<div class="form-group">
+					<label for="product[description]">Description:</label>
+					<textarea name="product[description]" class="form-control" placeholder=<%= @product.description %>></textarea>
+				</div>
+
+				<div class="form-group">
+					<label for="product[pricing]">Price:</label>
+					<input type="text" name="product[pricing]" class="form-control" placeholder=<%= @product.pricing %>></input>
+				</div>
+
+				<button type="submit" class="btn btn-primary">Edit product</button>
+			</form> -->
+
+
+		</div>
+	</div>
+
+<% end %>
+
+

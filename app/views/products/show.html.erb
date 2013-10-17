@@ -1,0 +1,26 @@
+<% if @product == nil %>
+	<h2>Oops, that product doesn't exist!</h2>
+
+<% else %>
+	<h1>Product #<%= @product.id %></h1>
+
+	<% if @product!=nil && @product.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@product.errors.count, "error") %> prohibited this post from being saved: </h2>
+
+			<% @product.errors.full_messages.each do |message| %>
+				<p><%= message %></p>
+			<% end %>
+		</div>
+	<% end %>
+
+	<%	if defined? flash[:notice] %>
+			<p class="notice"><%=flash[:notice]%></p>
+	<%	end %>
+
+	<!-- <p>Product id: <%= @product.id %></p> -->
+	<p>Name: <%= @product.name %></p>
+	<p>Description: <%= @product.description %></p>
+	<p>Price: <%= @product.pricing %></p>
+
+<% end %>

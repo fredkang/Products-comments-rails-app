@@ -1,0 +1,35 @@
+// Place all the styles related to the Products controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#container .form-container 
+{
+	padding-left:0px;
+	padding-right:0px;
+}
+
+.notice
+{
+	font-weight:bold;
+}
+
+.product-group
+{
+	margin-bottom:15px;
+}
+
+.product-group p
+{
+	margin-bottom:5px;
+}
+
+.edit
+{
+	display:inline-block;
+	margin-right:20px;
+}
+
+.delete
+{
+	display:inline-block;
+}

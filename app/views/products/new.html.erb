@@ -1,0 +1,50 @@
+<h1>Create a new product</h1>
+
+<% if @product!=nil && @product.errors.any? %>
+	<div id="error_explanation">
+		<h2><%= pluralize(@product.errors.count, "error") %> prohibited this post from being saved: </h2>
+
+		<%# @product.errors.full_messages.each do |message| %>
+			<!-- <p><%#= message %></p> -->
+		<%# end %>
+	</div>
+<% end %>
+
+<%	if defined? flash[:notice] %>
+		<p><%=flash[:notice]%></p>
+<%	end %>
+
+<div id="container">
+	<div class="col-sm-6 form-container">
+		<%= simple_form_for(@product, :defaults => { :wrapper_html => {:class=>"form-group"}, :input_html => { :class => "form-control" } }) do |f| %>
+			<%= f.input :name, label: "Product name:" %>
+			<%= f.input :description, label: "Description:" %>
+			<%= f.input :pricing, label: "Price:" %>
+			<%= f.button :submit, input_html: {value: 'Create product'}, class: "btn btn-primary"%>
+		<% end %>
+
+		<!-- <form role="form" method="post" action="/products">
+			<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+
+			<div class="form-group">
+				<label for="product[name]">Product name:</label>
+				<input type="text" name="product[name]" class="form-control"></input>
+			</div>
+
+			<div class="form-group">
+				<label for="product[description]">Description:</label>
+				<textarea name="product[description]" class="form-control"></textarea>
+			</div>
+
+			<div class="form-group">
+				<label for="product[pricing]">Price:</label>
+				<input type="text" name="product[pricing]" class="form-control"></input>
+			</div>
+
+			<button type="submit" class="btn btn-primary">Create product</button>
+		</form> -->
+
+		
+
+	</div>
+</div>
