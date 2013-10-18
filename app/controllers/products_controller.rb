@@ -6,6 +6,8 @@ class ProductsController < ApplicationController
   def show
     if Product.exists?(params[:id])
       @product = Product.find(params[:id])
+      @comments = @product.comments.all
+      @comment = @product.comments.new
     end
   end
 
@@ -48,6 +50,10 @@ class ProductsController < ApplicationController
       newParams['pricing'] = params['product']['pricing']
     end
 
+    if params['product']['category']!= ""
+      newParams['category_id'] = params['product']['category_id']
+    end
+
     if @product.update(newParams)
       redirect_to "/products/"+@product.id.to_s, notice: 'Product has been updated'
     else
@@ -67,6 +73,6 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:name, :description, :pricing)
+    params.require(:product).permit(:name, :description, :category_id, :pricing)
   end
 end

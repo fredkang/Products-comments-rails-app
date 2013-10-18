@@ -19,6 +19,7 @@
 		<p>Product id: <%= product.id %></p>
 		<p>Name: <%= product.name %></p>
 		<p>Description: <%= product.description %></p>
+		<p>Category: <%= product.category.name if product.category!=nil %></p>
 		<p>Price: <%= product.pricing %></p>
 		<span class="edit"><a href=<%= "/products/"+product.id.to_s+"/edit"%>>Edit</a></span>
 		<span class="delete"><%= link_to 'Destroy', product_path(product), :confirm => 'Are you sure?', :method => :delete %></span>

@@ -1,0 +1,15 @@
+<h1>All Comments</h1>
+
+<%	if defined? flash[:notice] %>
+		<p class="notice"><%=flash[:notice]%></p>
+<%	end %>
+
+<% if @comments!=nil %>
+	<% @comments.each do |comment| %>
+		<div class="comment-group">
+			<p>Comments for product #<%= comment.product_id %></p>
+			<p><%= comment.author %> - <%= comment.created_at %><p>
+			<p class="comment-content"><%= comment.content %></p>
+		</div>
+	<% end %>
+<% end %>

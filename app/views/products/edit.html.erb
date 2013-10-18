@@ -21,6 +21,7 @@
 			<%= simple_form_for(@product, :defaults => { :wrapper_html => {:class=>"form-group"}, :input_html => { :class => "form-control" } }) do |f| %>
 				<%= f.input :name, label: "Product name:", input_html: {placeholder: @product.name} %>
 				<%= f.input :description, label: "Description:", input_html: {placeholder: @product.description} %>
+				<%= f.association :category, label: "Category" %>
 				<%= f.input :pricing, label: "Price:", input_html: {placeholder: @product.pricing} %>
 				<%= f.button :submit, input_html: {value: 'Edit product'}, class: "btn btn-primary"%>
 			<% end %>

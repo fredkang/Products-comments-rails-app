@@ -1,5 +1,10 @@
 ProductComments::Application.routes.draw do
+  # post  "/comments(.:format)" => 'comments#create'
+  # get   "/comments(.:format)" => 'comments#index'
+  # get   "/comments/:id(.:format)" => 'comments#show'
+  resources :comments
   resources :products
+  
   # get "products/index"
   # get "products/show"
   # get "products/new"

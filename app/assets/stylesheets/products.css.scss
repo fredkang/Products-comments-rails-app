@@ -2,10 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#container
+{
+	padding-left:0px;	
+}
+
 #container .form-container 
 {
 	padding-left:0px;
 	padding-right:0px;
+	margin-bottom:20px;
 }
 
 .notice
@@ -32,4 +38,19 @@
 .delete
 {
 	display:inline-block;
+}
+
+.comment-group
+{
+	margin-bottom:15px;
+}
+
+.comment-group p
+{
+	margin:2px;
+}
+
+.comment-group .comment-content
+{
+	font-size:16px;
 }
